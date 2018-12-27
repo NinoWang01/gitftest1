@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gitftest1/page2/Page2.dart';
+import 'package:gitftest1/page3/Page3.dart';
 import 'page1/Page1.dart';
 
 void main() => runApp(MyApp());
@@ -57,7 +58,11 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("gridview"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page3();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
