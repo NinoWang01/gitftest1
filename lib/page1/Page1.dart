@@ -8,7 +8,7 @@ class Page1 extends StatelessWidget {
       appBar: new AppBar(
         title: new Text("ListView"),
       ),
-      body: MyListView2(),
+      body: MyListView1(),
     );
   }
 
@@ -16,8 +16,9 @@ class Page1 extends StatelessWidget {
 
   Widget MyListView1() {
     return new ListView.builder(
-
-        itemCount: 20, //item数量，不写默认无限
+        //scrollDirection:Axis.horizontal,//滑动方向
+        physics:BouncingScrollPhysics(),
+       // itemCount: 20, //item数量，不写默认无限
         padding: EdgeInsets.all(8.0),
         addAutomaticKeepAlives: true,//使项目保持活动状态，否则会被破坏,默认是true
         itemExtent: 20.0, //item间的距离

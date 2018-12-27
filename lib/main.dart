@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gitftest1/page2/Page2.dart';
 import 'page1/Page1.dart';
 
 void main() => runApp(MyApp());
@@ -47,7 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("listview加载特效"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page2();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
@@ -171,7 +176,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           new Divider(),
           new ListTile(
-            title: new Text("插件1"),
+            title: new Text("scrollphysics"),
+            onTap: () {},
+          ),
+          new Divider(),
+          new ListTile(
+            title: new Text("插件1-Listview"),
             onTap: () {},
           ),
           new Divider(),
