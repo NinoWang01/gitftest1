@@ -14,7 +14,7 @@ class _Page3 extends State<Page3> {
       appBar: AppBar(
         title: Text("gradview"),
       ),
-      body: MyGridView1(),
+      body: MyGridView5(),
     );
   }
 
@@ -22,35 +22,80 @@ class _Page3 extends State<Page3> {
   MyGridView1() {
     return GridView.builder(
 //      scrollDirection: Axis.horizontal,
-      physics: BouncingScrollPhysics(),
-      itemCount: 50,
+        physics: BouncingScrollPhysics(),
+        itemCount: 50,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 10.0,
-            childAspectRatio: 1.0),
+            crossAxisCount: 2, //数量
+            mainAxisSpacing: 50, //每行间距
+            crossAxisSpacing: 10, //每列间距
+            childAspectRatio: 0.5), //长比宽的值
         itemBuilder: (context, index) {
-          return Text("哈哈哈哈");
+          return new Container(
+            child: Text("哈哈哈"),
+            color: Colors.red,
+          );
         });
   }
 
   /// GridView.custom
   MyGridView2() {
-    return GridView.custom(gridDelegate: null, childrenDelegate: null);
+    return GridView.custom(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 50, //每行间距
+            crossAxisSpacing: 10, //每列间距
+            childAspectRatio: 0.5),
+        childrenDelegate: SliverChildBuilderDelegate((context, index) {
+          return Container(
+            child: Text("222222222222"),
+            color: Colors.red,
+          );
+        }));
   }
 
-  ///GridView.count
+  ///GridView.count 根数数量
   MyGridView3() {
-    return GridView.count(crossAxisCount: null);
+    return GridView.count(
+      crossAxisCount: 2,
+      children: List.generate(
+          50,
+          (index) => Container(
+                child: Text("tesxt $index"),
+                color: Colors.red,
+              )),
+    );
   }
 
-  ///GridView.extent
+  ///GridView.extent 根据像素
   MyGridView4() {
-    return GridView.extent(maxCrossAxisExtent: null);
+    return GridView.extent(
+      //横轴的最大长度
+      maxCrossAxisExtent: 115.0,
+      padding: const EdgeInsets.all(4.0),
+      //主轴间隔
+      mainAxisSpacing: 4.0,
+      //横轴间隔
+      crossAxisSpacing: 4.0,
+      childAspectRatio: 2,
+      children: List.generate(
+          50,
+          (index) => Container(
+                child: Text("tesxt $index"),
+                color: Colors.red,
+              )),
+    );
   }
 
   ///GridView
   MyGridView5() {
-    return GridView();
+    return GridView(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      children: List.generate(
+          50,
+          (index) => Container(
+                child: Text("tesxt $index"),
+                color: Colors.red,
+              )),
+    );
   }
 }
