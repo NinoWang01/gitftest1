@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gitftest1/page2/Page2.dart';
 import 'package:gitftest1/page3/Page3.dart';
+import 'package:gitftest1/page4/Page4.dart';
+import 'package:gitftest1/page5/Page5.dart';
+import 'package:gitftest1/page6/Page6.dart';
 import 'page1/Page1.dart';
 
 void main() => runApp(MyApp());
@@ -66,18 +69,30 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           new Divider(),
           new ListTile(
-            title: new Text("listview+gridview"),
-            onTap: () {},
+            title: new Text("CustomScrollView"),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page4();
+              }),);
+            },
           ),
           new Divider(),
           new ListTile(
-            title: new Text("scrollview+listview"),
-            onTap: () {},
+            title: new Text("Wedget+listview"),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (index){
+                return Page5();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("弹窗"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (index){
+                return Page6();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
@@ -137,6 +152,13 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("gestures手势"),
+            onTap: () {},
+          ),
+          new ListTile(
+            title: new Text("appbar"),
+            onTap: () {},
+          ),new ListTile(
+            title: new Text("SliverAppBar"),
             onTap: () {},
           ),
           new Divider(),
