@@ -4,6 +4,7 @@ import 'package:gitftest1/page3/Page3.dart';
 import 'package:gitftest1/page4/Page4.dart';
 import 'package:gitftest1/page5/Page5.dart';
 import 'package:gitftest1/page6/Page6.dart';
+import 'package:gitftest1/page7/Page7.dart';
 import 'page1/Page1.dart';
 
 void main() => runApp(MyApp());
@@ -97,7 +98,11 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("网络请求1"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page7();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
