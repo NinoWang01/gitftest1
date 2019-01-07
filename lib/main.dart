@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gitftest1/page10/Page10.dart';
+import 'package:gitftest1/page11/Page11.dart';
 import 'package:gitftest1/page2/Page2.dart';
 import 'package:gitftest1/page3/Page3.dart';
 import 'package:gitftest1/page4/Page4.dart';
 import 'package:gitftest1/page5/Page5.dart';
 import 'package:gitftest1/page6/Page6.dart';
 import 'package:gitftest1/page7/Page7.dart';
+import 'package:gitftest1/page8/Page8.dart';
+import 'package:gitftest1/page9/Page9.dart';
 import 'page1/Page1.dart';
 
 void main() => runApp(MyApp());
@@ -107,32 +111,38 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("异步"),
-            onTap: () {},
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("网络请求2"),
-            onTap: () {},
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("json解析"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page8();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("json解析"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page9();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("文本输入"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page10();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("图片"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page11();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
@@ -159,10 +169,13 @@ class _MyHomePageState extends State<MyHomePage> {
             title: new Text("gestures手势"),
             onTap: () {},
           ),
+          new Divider(),
           new ListTile(
             title: new Text("appbar"),
             onTap: () {},
-          ),new ListTile(
+
+          ),
+          new Divider(),new ListTile(
             title: new Text("SliverAppBar"),
             onTap: () {},
           ),
@@ -209,6 +222,12 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("scrollphysics"),
+            onTap: () {},
+          ),
+
+          new Divider(),
+          new ListTile(
+            title: new Text("wrap--流式布局"),
             onTap: () {},
           ),
           new Divider(),
