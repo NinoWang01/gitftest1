@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gitftest1/page10/Page10.dart';
 import 'package:gitftest1/page11/Page11.dart';
+import 'package:gitftest1/page12/Page12.dart';
+import 'package:gitftest1/page13/Page13.dart';
+import 'package:gitftest1/page14/Page14.dart';
+import 'package:gitftest1/page15/Page15.dart';
 import 'package:gitftest1/page2/Page2.dart';
 import 'package:gitftest1/page3/Page3.dart';
 import 'package:gitftest1/page4/Page4.dart';
@@ -147,27 +151,47 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("文件存储+sqlite"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page12();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
-            title: new Text("cupertino"),
-            onTap: () {},
+            title: new Text("cupertino导航样式"),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page13();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("viewpager"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page14();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("导航路由"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return null;
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("gestures手势"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page15();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
