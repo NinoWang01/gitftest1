@@ -5,6 +5,10 @@ import 'package:gitftest1/page12/Page12.dart';
 import 'package:gitftest1/page13/Page13.dart';
 import 'package:gitftest1/page14/Page14.dart';
 import 'package:gitftest1/page15/Page15.dart';
+import 'package:gitftest1/page16/Page16.dart';
+import 'package:gitftest1/page17/Page17.dart';
+import 'package:gitftest1/page18/Page18.dart';
+import 'package:gitftest1/page18/Page18_1.dart';
 import 'package:gitftest1/page2/Page2.dart';
 import 'package:gitftest1/page3/Page3.dart';
 import 'package:gitftest1/page4/Page4.dart';
@@ -26,6 +30,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+        routes: <String, WidgetBuilder> {
+          // 这里可以定义静态路由，不能传递参数
+          '/route/Page18_1': (_) => new Page18_1(),//路径可以随便起
+        },
     );
   }
 }
@@ -177,15 +185,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           new Divider(),
           new ListTile(
-            title: new Text("导航路由"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                return null;
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
             title: new Text("gestures手势"),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context){
@@ -196,12 +195,30 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("appbar"),
-            onTap: () {},
+            onTap: () {
+
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page16();
+              }));
+            },
 
           ),
           new Divider(),new ListTile(
             title: new Text("SliverAppBar"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page17();
+              }));
+            },
+          ),
+          new Divider(),
+          new ListTile(
+            title: new Text("路由导航和数据传递"),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return Page18();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(

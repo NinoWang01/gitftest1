@@ -70,7 +70,7 @@ class _Page1 extends State {
                               break;
                           }
                           return new GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               showToast("$photoPath");
                             },
                             child: new Image(
@@ -116,33 +116,33 @@ class _Page1 extends State {
                       builder: (BuildContext context) {
                         return new Scaffold(
                           backgroundColor: Colors.black,
-                          body: new Center(child: new Hero(
-                                    tag: 'Hero',
-                                    child:new GestureDetector(
-                                      onTap: (){
-                                        Navigator.of(context).pop();
-                                      },
-                                      child:  new Image.network(
-                                        "http://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2017/07/20/20170720-033010_U7356_M303329_731d.jpg?itok=3p_aB4T5",
-                                        width: MediaQuery.of(context).size.width,
-                                      ),
-                                    ),
-                           ),
+                          body: new Center(
+                            child: new Hero(
+                              tag: 'Hero',
+                              child: new GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: new Image.network(
+                                  "http://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2017/07/20/20170720-033010_U7356_M303329_731d.jpg?itok=3p_aB4T5",
+                                  width: MediaQuery.of(context).size.width,
+                                ),
+                              ),
+                            ),
                           ),
                         );
                       },
                     ),
                   );
                 },
-                child:new Hero(
+                child: new Hero(
                   tag: 'Hero',
-                  child:  new Image.network(
-                  "http://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2017/07/20/20170720-033010_U7356_M303329_731d.jpg?itok=3p_aB4T5",
-                  width: MediaQuery.of(context).size.width,
-                ),
+                  child: new Image.network(
+                    "http://image.cache.storm.mg/styles/smg-800x533-fp/s3/media/image/2017/07/20/20170720-033010_U7356_M303329_731d.jpg?itok=3p_aB4T5",
+                    width: MediaQuery.of(context).size.width,
+                  ),
                 ),
               ),
-
             ],
           ),
         ),
@@ -164,8 +164,7 @@ class _Page1 extends State {
         children: <Widget>[
           new GestureDetector(
             onTap: () {
-              Scaffold
-                  .of(context)
+              Scaffold.of(context)
                   .showSnackBar(new SnackBar(content: new Text("$text")));
             },
             child: new Container(

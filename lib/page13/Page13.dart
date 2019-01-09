@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Page13 extends StatefulWidget{
+class Page13 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return _Page13State();
   }
-
 }
 
 class _Page13State extends State {
@@ -16,6 +15,7 @@ class _Page13State extends State {
     1: Text('Viridian'),
     2: Text('Cerulean'),
   };
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -71,12 +71,14 @@ class _Page13State extends State {
                     );
                     break;
                   case 1:
-                    return
-                        CupertinoSegmentedControl(children: map, onValueChanged: (int newValue) {
-                          setState(() {
+                    return CupertinoSegmentedControl(
+                      children: map,
+                      onValueChanged: (int newValue) {
+                        setState(() {
 //                          sharedValue = newValue;
-                          });
-                        },);
+                        });
+                      },
+                    );
                     break;
                   case 2:
                     return new Center(

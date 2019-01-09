@@ -5,7 +5,6 @@ import 'package:gitftest1/page14/Page14_3.dart';
 import 'package:gitftest1/page14/Page14_4.dart';
 import 'package:gitftest1/page14/Page14_5.dart';
 
-
 class Page14 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -44,49 +43,49 @@ class _Page14State extends State {
           elevation: 0.0,
           bottom: page == 0
               ? new PreferredSize(
-            preferredSize:
-            new Size(MediaQuery.of(context).size.width, 40.0),
-            child: new Container(
-              color: Colors.white,
-              height: 40.0,
-              child: new TabBar(
-                unselectedLabelColor: Colors.black,
-                labelColor: Colors.red,
-                indicatorColor: Colors.redAccent,
-                indicatorSize: TabBarIndicatorSize.label,
-                tabs: [
-                  new Tab(
-                    text: "首页",
+                  preferredSize:
+                      new Size(MediaQuery.of(context).size.width, 40.0),
+                  child: new Container(
+                    color: Colors.white,
+                    height: 40.0,
+                    child: new TabBar(
+                      unselectedLabelColor: Colors.black,
+                      labelColor: Colors.red,
+                      indicatorColor: Colors.redAccent,
+                      indicatorSize: TabBarIndicatorSize.label,
+                      tabs: [
+                        new Tab(
+                          text: "首页",
+                        ),
+                        new Tab(
+                          text: "男装",
+                        ),
+                        new Tab(
+                          text: "手机",
+                        ),
+                        new Tab(
+                          text: "电器",
+                        ),
+                        new Tab(
+                          text: "鞋包",
+                        ),
+                        new Tab(
+                          text: "百货",
+                        ),
+                        new Tab(
+                          text: "服饰",
+                        ),
+                        new Tab(
+                          text: "电影",
+                        ),
+                        new Tab(
+                          text: "食品",
+                        ),
+                      ],
+                      isScrollable: true,
+                    ),
                   ),
-                  new Tab(
-                    text: "男装",
-                  ),
-                  new Tab(
-                    text: "手机",
-                  ),
-                  new Tab(
-                    text: "电器",
-                  ),
-                  new Tab(
-                    text: "鞋包",
-                  ),
-                  new Tab(
-                    text: "百货",
-                  ),
-                  new Tab(
-                    text: "服饰",
-                  ),
-                  new Tab(
-                    text: "电影",
-                  ),
-                  new Tab(
-                    text: "食品",
-                  ),
-                ],
-                isScrollable: true,
-              ),
-            ),
-          )
+                )
               : null,
         ),
         body: new PageView(
