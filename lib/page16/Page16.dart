@@ -16,10 +16,12 @@ class Page16 extends StatelessWidget {
 //                Scaffold.of(context).openDrawer();//打开drawer
                 Navigator.of(context).pop();
               },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,//长按提示
+              tooltip:
+                  MaterialLocalizations.of(context).openAppDrawerTooltip, //长按提示
             );
           },
-        ), // 左侧返回按钮，可以有按钮，可以有文字
+        ),
+        // 左侧返回按钮，可以有按钮，可以有文字
         actions: <Widget>[
           new IconButton(
             // action button
@@ -36,27 +38,29 @@ class Page16 extends StatelessWidget {
           ),
           new FlatButton(onPressed: () {}, child: Text('edit')),
           new PopupMenuButton(
-    offset: Offset.lerp(Offset(10, 10),Offset(50, 50),20 ),//位置
+              offset: Offset.lerp(Offset(10, 10), Offset(50, 50), 20), //位置
               itemBuilder: (BuildContext context) {
-            return choices.skip(2).map((Choice choice) {
-              return PopupMenuItem<Choice>(
-                value: choice,
-                child: Text(choice.title),
-              );
-            }).toList();
-          }),
-
+                return choices.skip(2).map((Choice choice) {
+                  return PopupMenuItem<Choice>(
+                    value: choice,
+                    child: Text(choice.title),
+                  );
+                }).toList();
+              }),
         ],
-        iconTheme: IconThemeData(//appbar里图标颜色
+        iconTheme: IconThemeData(
+            //appbar里图标颜色
             color: Colors.yellow,
             opacity: 0.5,
             size: 30),
-        bottom: PreferredSize(
-            child: Text('导航栏下边的部分'),
-            preferredSize: Size(30, 30)),
-        bottomOpacity: 0.5, //底部分的不透明度
-        titleSpacing: -10,//标题距离左边的距离
-        flexibleSpace: Text('d12321312'), //堆叠在工具栏和标签栏后面。 它的高度与应用栏的整体高度相同。
+        bottom:
+            PreferredSize(child: Text('导航栏下边的部分'), preferredSize: Size(30, 30)),
+        bottomOpacity: 0.5,
+        //底部分的不透明度
+        titleSpacing: -10,
+        //标题距离左边的距离
+        flexibleSpace: Text('d12321312'),
+        //堆叠在工具栏和标签栏后面。 它的高度与应用栏的整体高度相同。
         elevation: 10, //阴影的高度
       ),
     );

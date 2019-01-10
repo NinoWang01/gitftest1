@@ -9,6 +9,7 @@ import 'package:gitftest1/page16/Page16.dart';
 import 'package:gitftest1/page17/Page17.dart';
 import 'package:gitftest1/page18/Page18.dart';
 import 'package:gitftest1/page18/Page18_1.dart';
+import 'package:gitftest1/page19/Page19.dart';
 import 'package:gitftest1/page2/Page2.dart';
 import 'package:gitftest1/page3/Page3.dart';
 import 'package:gitftest1/page4/Page4.dart';
@@ -30,10 +31,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
-        routes: <String, WidgetBuilder> {
-          // 这里可以定义静态路由，不能传递参数
-          '/route/Page18_1': (_) => new Page18_1(),//路径可以随便起
-        },
+      routes: <String, WidgetBuilder>{
+        // 这里可以定义静态路由，不能传递参数
+        '/route/Page18_1': (_) => new Page18_1(), //路径可以随便起
+      },
     );
   }
 }
@@ -79,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("gridview"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page3();
               }));
             },
@@ -88,16 +89,18 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("CustomScrollView"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                return Page4();
-              }),);
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return Page4();
+                }),
+              );
             },
           ),
           new Divider(),
           new ListTile(
             title: new Text("Wedget+listview"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (index){
+              Navigator.of(context).push(MaterialPageRoute(builder: (index) {
                 return Page5();
               }));
             },
@@ -106,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("弹窗"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (index){
+              Navigator.of(context).push(MaterialPageRoute(builder: (index) {
                 return Page6();
               }));
             },
@@ -115,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("网络请求1"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page7();
               }));
             },
@@ -124,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("异步"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page8();
               }));
             },
@@ -133,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("json解析"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page9();
               }));
             },
@@ -142,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("文本输入"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page10();
               }));
             },
@@ -151,7 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("图片"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page11();
               }));
             },
@@ -160,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("文件存储+sqlite"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page12();
               }));
             },
@@ -169,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("cupertino导航样式"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page13();
               }));
             },
@@ -178,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("viewpager"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page14();
               }));
             },
@@ -187,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("gestures手势"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page15();
               }));
             },
@@ -196,17 +199,16 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("appbar"),
             onTap: () {
-
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page16();
               }));
             },
-
           ),
-          new Divider(),new ListTile(
+          new Divider(),
+          new ListTile(
             title: new Text("SliverAppBar"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page17();
               }));
             },
@@ -215,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
           new ListTile(
             title: new Text("路由导航和数据传递"),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Page18();
               }));
             },
@@ -223,7 +225,11 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("动画"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page19();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
@@ -233,6 +239,11 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("自定义动画"),
+            onTap: () {},
+          ),
+          new Divider(),
+          new ListTile(
+            title: new Text("底部嵌入"),
             onTap: () {},
           ),
           new Divider(),
@@ -265,10 +276,20 @@ class _MyHomePageState extends State<MyHomePage> {
             title: new Text("scrollphysics"),
             onTap: () {},
           ),
-
           new Divider(),
           new ListTile(
             title: new Text("wrap--流式布局"),
+            onTap: () {},
+          ),
+          new Divider(),
+          new ListTile(
+            title: new Text("调用Android控件"),
+            onTap: () {},
+          ),
+          new Divider(),
+
+          new ListTile(
+            title: new Text("圆形头像和图片缓存"),
             onTap: () {},
           ),
           new Divider(),

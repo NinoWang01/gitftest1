@@ -48,7 +48,7 @@ class _ManHuaInfo extends State {
                       centerTitle: false,
                       title: Text("我是一个帅气的标题",
                           style: TextStyle(
-                        color: Colors.white,
+                            color: Colors.white,
                             fontSize: 16.0,
                           )),
                       background: Stack(
@@ -92,9 +92,9 @@ class _ManHuaInfo extends State {
                                       padding: const EdgeInsets.only(left: 8),
                                       child: Column(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: <Widget>[
                                           new Text(
                                             data['bookTitle'] == null
@@ -127,9 +127,9 @@ class _ManHuaInfo extends State {
                                           ),
                                           new Row(
                                             mainAxisAlignment:
-                                            MainAxisAlignment.end,
+                                                MainAxisAlignment.end,
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.end,
+                                                CrossAxisAlignment.end,
                                             children: <Widget>[
                                               Icon(
                                                 Icons.whatshot,
@@ -179,7 +179,8 @@ class _ManHuaInfo extends State {
                     child: new Row(
                       children: <Widget>[
                         Expanded(
-                          child: Text(data['state']==null?'连载中':data['state']),
+                          child: Text(
+                              data['state'] == null ? '连载中' : data['state']),
                         ),
                         Expanded(
                           flex: 4,
@@ -218,7 +219,7 @@ class _ManHuaInfo extends State {
                     ),
                   ),
                   new Container(
-                    height: (gridData.length* 18.75),
+                    height: (gridData.length * 18.75),
                     child: new GridView.count(
                       physics: new NeverScrollableScrollPhysics(),
                       crossAxisCount: 2,
@@ -292,7 +293,7 @@ class _ManHuaInfo extends State {
   void initState() {
     // TODO: implement initState
     data['cover'] =
-    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531798262708&di=53d278a8427f482c5b836fa0e057f4ea&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F342ac65c103853434cc02dda9f13b07eca80883a.jpg';
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531798262708&di=53d278a8427f482c5b836fa0e057f4ea&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F342ac65c103853434cc02dda9f13b07eca80883a.jpg';
     getInfoData();
     getGridData();
     super.initState();
@@ -358,11 +359,14 @@ class _ManHuaInfo extends State {
         gridData = changeListShunXu();
 
         sumNum = response.data["data"]['count'];
-        lastUpdateTime = DateTime.fromMillisecondsSinceEpoch(response.data['data']['lastUpdateTime']*1000).toString().substring(0,10);
-
+        lastUpdateTime = DateTime.fromMillisecondsSinceEpoch(
+                response.data['data']['lastUpdateTime'] * 1000)
+            .toString()
+            .substring(0, 10);
 
 //        lastUpdateTime = DateTime.fromMillisecondsSinceEpoch(response.data['lastUpdateTime']).toString();
-        print('---------------'+DateTime.now().millisecondsSinceEpoch.toString());
+        print('---------------' +
+            DateTime.now().millisecondsSinceEpoch.toString());
 //        DateTime.fromMillisecondsSinceEpoch(new DateTime.now().millisecondsSinceEpoch);
       });
     } else {
