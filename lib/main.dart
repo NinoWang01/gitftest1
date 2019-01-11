@@ -11,6 +11,8 @@ import 'package:gitftest1/page18/Page18.dart';
 import 'package:gitftest1/page18/Page18_1.dart';
 import 'package:gitftest1/page19/Page19.dart';
 import 'package:gitftest1/page2/Page2.dart';
+import 'package:gitftest1/page20/Page20.dart';
+import 'package:gitftest1/page21/Page21.dart';
 import 'package:gitftest1/page3/Page3.dart';
 import 'package:gitftest1/page4/Page4.dart';
 import 'package:gitftest1/page5/Page5.dart';
@@ -234,17 +236,20 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("画笔"),
-            onTap: () {},
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("自定义动画"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page20();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("底部嵌入"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page21();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
@@ -299,7 +304,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           new Divider(),
           new ListTile(
-            title: new Text("插件2"),
+            title: new Text("插件2-视频播放"),
             onTap: () {},
           ),
           new Divider(),
