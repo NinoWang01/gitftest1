@@ -13,7 +13,20 @@ import 'package:gitftest1/page19/Page19.dart';
 import 'package:gitftest1/page2/Page2.dart';
 import 'package:gitftest1/page20/Page20.dart';
 import 'package:gitftest1/page21/Page21.dart';
+import 'package:gitftest1/page22/Page22.dart';
+import 'package:gitftest1/page23/Page23.dart';
+import 'package:gitftest1/page24/Page24.dart';
+import 'package:gitftest1/page25/Page25.dart';
+import 'package:gitftest1/page26/Page26.dart';
+import 'package:gitftest1/page27/Page27.dart';
+import 'package:gitftest1/page28/Page28.dart';
+import 'package:gitftest1/page29/Page29.dart';
 import 'package:gitftest1/page3/Page3.dart';
+import 'package:gitftest1/page30/Page30.dart';
+import 'package:gitftest1/page31/Page31.dart';
+import 'package:gitftest1/page32/Page32.dart';
+import 'package:gitftest1/page33/Page33.dart';
+import 'package:gitftest1/page34/Page34.dart';
 import 'package:gitftest1/page4/Page4.dart';
 import 'package:gitftest1/page5/Page5.dart';
 import 'package:gitftest1/page6/Page6.dart';
@@ -24,12 +37,26 @@ import 'page1/Page1.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyApp();
+  }
+}
+bool changethemeStyle = false;
+
+class _MyApp extends State{
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Test Demo',
-      theme: ThemeData(
+      theme: changethemeStyle?ThemeData(
+        primarySwatch: Colors.green,
+      ):
+      ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -254,68 +281,126 @@ class _MyHomePageState extends State<MyHomePage> {
           new Divider(),
           new ListTile(
             title: new Text("生命周期"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page22();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("时间日期"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page23();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("多语言"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page24();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("主题配置"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page25();
+              })).then((val){
+                 setState(() {
+//                   Theme.of(context).(primaryColor: Colors.red);
+                   Theme.of(context).copyWith(accentColor: Colors.red);
+                   changethemeStyle = !changethemeStyle;
+                 });
+              });
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("透明度"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page26();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
-            title: new Text("scrollphysics"),
-            onTap: () {},
+            title: new Text("自定义ScrollPhysics"),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page27();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("wrap--流式布局"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page28();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("调用Android控件"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page29();
+              }));
+            },
           ),
           new Divider(),
 
           new ListTile(
             title: new Text("圆形头像和图片缓存"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page30();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("插件1-Listview"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page31();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("插件2-视频播放"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page32();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("插件3"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page33();
+              }));
+            },
           ),
           new Divider(),
           new ListTile(
             title: new Text("插件4"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Page34();
+              }));
+            },
           ),
           new Divider(),
         ],
