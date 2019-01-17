@@ -15,16 +15,7 @@ class _Page20State extends State {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _animation = new AnimationController(
-      // 因为是repeat的，这里的duration其实不care
-        duration: const Duration(milliseconds: 200),
-        vsync: this)
-      ..addListener(() {
-        if (_rainList.isEmpty) { //(1)
-          _animation.stop();
-        }
-        setState(() {});
-      });
+    
   }
   @override
   Widget build(BuildContext context) {

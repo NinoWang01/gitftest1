@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:gitftest1/page10/Page10.dart';
 import 'package:gitftest1/page11/Page11.dart';
 import 'package:gitftest1/page12/Page12.dart';
@@ -28,6 +29,7 @@ import 'package:gitftest1/page30/Page30.dart';
 import 'package:gitftest1/page31/Page31.dart';
 import 'package:gitftest1/page32/Page32.dart';
 import 'package:gitftest1/page33/Page33.dart';
+import 'package:gitftest1/page33/count_state.dart';
 import 'package:gitftest1/page34/Page34.dart';
 import 'package:gitftest1/page4/Page4.dart';
 import 'package:gitftest1/page5/Page5.dart';
@@ -35,24 +37,36 @@ import 'package:gitftest1/page6/Page6.dart';
 import 'package:gitftest1/page7/Page7.dart';
 import 'package:gitftest1/page8/Page8.dart';
 import 'package:gitftest1/page9/Page9.dart';
+import 'package:redux/redux.dart';
 import 'page1/Page1.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  final store = Store<CountState>(reducer, initialState: CountState.initState());
+  runApp(MyApp(store));
+}
 
 class MyApp extends StatefulWidget {
+  final Store<CountState> store;
+
+  MyApp(this.store);
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _MyApp();
+    return _MyApp(store);
   }
 }
 
 bool changethemeStyle = false;
 
 class _MyApp extends State {
+  final Store<CountState> store;
+  _MyApp(this.store);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  StoreProvider<CountState>(
+        store: store,
+        child: MaterialApp(
       title: 'Flutter Test Demo',
       theme: changethemeStyle
           ? ThemeData(
@@ -66,6 +80,7 @@ class _MyApp extends State {
         // 这里可以定义静态路由，不能传递参数
         '/route/Page18_1': (_) => new Page18_1(), //路径可以随便起
       },
+        )
     );
   }
 }
@@ -418,7 +433,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new Divider(),
             new ListTile(
-              title: new Text("插件3"),
+              title: new Text("插件3-redux"),
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
