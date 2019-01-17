@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:gitftest1/page10/Page10.dart';
 import 'package:gitftest1/page11/Page11.dart';
@@ -38,27 +40,27 @@ import 'page1/Page1.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return _MyApp();
   }
 }
+
 bool changethemeStyle = false;
 
-class _MyApp extends State{
-
+class _MyApp extends State {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Test Demo',
-      theme: changethemeStyle?ThemeData(
-        primarySwatch: Colors.green,
-      ):
-      ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: changethemeStyle
+          ? ThemeData(
+              primarySwatch: Colors.green,
+            )
+          : ThemeData(
+              primarySwatch: Colors.blue,
+            ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       routes: <String, WidgetBuilder>{
         // 这里可以定义静态路由，不能传递参数
@@ -78,333 +80,393 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var isback = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: ListView(
-        children: <Widget>[
-          new ListTile(
-            title: new Text("listview"),
-            subtitle: new Text("三个listview下的方法使用+弹性效果"),
-            onTap: () {
-              Navigator.of(context)
-                  .push(new MaterialPageRoute(builder: (context) {
-                return Page1();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("listview加载特效"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page2();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("gridview"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page3();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("CustomScrollView"),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) {
-                  return Page4();
-                }),
-              );
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("Wedget+listview"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (index) {
-                return Page5();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("弹窗"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (index) {
-                return Page6();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("网络请求1"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page7();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("异步"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page8();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("json解析"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page9();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("文本输入"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page10();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("图片"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page11();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("文件存储+sqlite"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page12();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("cupertino导航样式"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page13();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("viewpager"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page14();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("gestures手势"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page15();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("appbar"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page16();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("SliverAppBar"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page17();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("路由导航和数据传递"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page18();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("动画"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page19();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("画笔"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page20();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("底部嵌入"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page21();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("生命周期"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page22();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("时间日期"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page23();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("多语言"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page24();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("主题配置"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page25();
-              })).then((val){
-                 setState(() {
+    return WillPopScope(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: ListView(
+          children: <Widget>[
+            new ListTile(
+              title: new Text("listview"),
+              subtitle: new Text("三个listview下的方法使用+弹性效果"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(new MaterialPageRoute(builder: (context) {
+                  return Page1();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("listview加载特效"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page2();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("gridview"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page3();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("CustomScrollView"),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) {
+                    return Page4();
+                  }),
+                );
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Wedget+listview"),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (index) {
+                  return Page5();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("弹窗"),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (index) {
+                  return Page6();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("网络请求1"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page7();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("异步"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page8();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("json解析"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page9();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("文本输入"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page10();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("图片"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page11();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("文件存储+sqlite"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page12();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("cupertino导航样式"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page13();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("viewpager"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page14();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("gestures手势"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page15();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("appbar"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page16();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("SliverAppBar"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page17();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("路由导航和数据传递"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page18();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("动画"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page19();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("画笔"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page20();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("底部嵌入"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page21();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("生命周期"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page22();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("时间日期"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page23();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("多语言"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page24();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("主题配置"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page25();
+                })).then((val) {
+                  setState(() {
 //                   Theme.of(context).(primaryColor: Colors.red);
-                   Theme.of(context).copyWith(accentColor: Colors.red);
-                   changethemeStyle = !changethemeStyle;
-                 });
-              });
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("透明度"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page26();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("自定义ScrollPhysics"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page27();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("wrap--流式布局"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page28();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("调用Android控件"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page29();
-              }));
-            },
-          ),
-          new Divider(),
-
-          new ListTile(
-            title: new Text("圆形头像和图片缓存"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page30();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("插件1-Listview"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page31();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("插件2-视频播放"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page32();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("插件3"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page33();
-              }));
-            },
-          ),
-          new Divider(),
-          new ListTile(
-            title: new Text("插件4"),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return Page34();
-              }));
-            },
-          ),
-          new Divider(),
-        ],
+                    Theme.of(context).copyWith(accentColor: Colors.red);
+                    changethemeStyle = !changethemeStyle;
+                  });
+                });
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("透明度"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page26();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("自定义ScrollPhysics"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page27();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("wrap--流式布局"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page28();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("调用Android控件"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page29();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("圆形头像和图片缓存"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page30();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("插件1-Listview"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page31();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("插件2-视频播放"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page32();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("插件3"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page33();
+                }));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("插件4"),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Page34();
+                }));
+              },
+            ),
+            new Divider(),
+          ],
+        ),
       ),
+      onWillPop: () async {
+        if (isback == false) {
+          isback = true;
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text('确定退出？',style: TextStyle(color: Colors.white),),
+                  actions: <Widget>[
+                    RaisedButton(
+                        child: Text("close"),
+                        onPressed: () {
+                          exit(0);
+                        })
+                  ],
+                );
+              });
+          await Future.delayed(Duration(seconds: 3), () {
+            isback = false;
+          });
+        } else {
+//         Navigator.pop(context);
+//         Navigator.of(context).pop();
+          exit(0);
+//          Navigator.pop(context, true);
+        }
+      },
     );
   }
 }

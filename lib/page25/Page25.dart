@@ -13,7 +13,10 @@ class _Page25State extends State<Page25>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(appBar: AppBar(title: Text(''),),floatingActionButton: new Theme(
+    return Scaffold(appBar: AppBar(title: Text(''),),body:Column(children: <Widget>[
+      Container(width: double.infinity,color: Colors.red,child: CircularProgressIndicator(),)
+
+    ],),floatingActionButton: new Theme(
       data: Theme.of(context).copyWith(accentColor: Colors.red),
       child: new FloatingActionButton(
         onPressed: (){
