@@ -27,6 +27,8 @@ dependencies:
   cached_network_image: ^0.5.1
   flutter_refresh: ^0.0.2
   flutter_redux: ^0.5.3
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

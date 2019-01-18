@@ -68,13 +68,7 @@ class _MyApp extends State {
         store: store,
         child: MaterialApp(
       title: 'Flutter Test Demo',
-      theme: changethemeStyle
-          ? ThemeData(
-              primarySwatch: Colors.green,
-            )
-          : ThemeData(
-              primarySwatch: Colors.blue,
-            ),
+      theme: store.state.themeData,
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       routes: <String, WidgetBuilder>{
         // 这里可以定义静态路由，不能传递参数

@@ -18,6 +18,17 @@ class _UnderScreenState extends State<UnderScreen> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            StoreConnector<CountState,VoidCallback>(
+              converter: (store) {
+                return () => store.dispatch(Action.changeThemeData);
+              },
+              builder: (context, callback) {
+                return RaisedButton(
+                  onPressed: callback,
+                  child: Text("changeTheme"),
+                );
+              },
+            ),
             new Text(
               'You have pushed the button this many times:',
             ),
