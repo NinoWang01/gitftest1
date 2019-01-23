@@ -9,14 +9,20 @@ class Page20 extends StatefulWidget {
 }
 
 class _Page20State extends State {
-  List<Widget> list = new List();
+  Paint _paint = Paint()
+    ..color = Colors.blueAccent //画笔颜色
+    ..strokeCap = StrokeCap.round //画笔笔触类型
+    ..isAntiAlias = true //是否启动抗锯齿
+    ..blendMode = BlendMode.exclusion //颜色混合模式
+    ..style = PaintingStyle.fill //绘画风格，默认为填充
+    ..colorFilter = ColorFilter.mode(Colors.blueAccent,
+        BlendMode.exclusion) //颜色渲染模式，一般是矩阵效果来改变的,但是flutter中只能使用颜色混合模式
+    ..maskFilter = MaskFilter.blur(BlurStyle.inner, 3.0) //模糊遮罩效果，flutter中只有这个
+    ..filterQuality = FilterQuality.high //颜色渲染模式的质量
+    ..strokeWidth = 15.0; //画笔的宽度
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    
-  }
+  List<Offset> _points = <Offset>[];
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -24,65 +30,62 @@ class _Page20State extends State {
       appBar: AppBar(
         title: Text("画笔-水滴动画"),
       ),
-      body: ListView(
-        children: list.toList(),
+      body: Stack(
+        children: [
+          GestureDetector(//手势探测器，一个特殊的widget，想要给一个widge添加手势，直接用这货包裹起来
+            onPanUpdate: (DragUpdateDetails details) {//按下
+              RenderBox referenceBox = context.findRenderObject();
+              Offset localPosition =
+              referenceBox.globalToLocal(details.globalPosition);
+              setState(() {
+                _points = new List.from(_points)..add(localPosition);
+//              _points.add(localPosition);
+              });
+            },
+            onPanEnd: (DragEndDetails details) => _points.add(null),//抬起来
+          ),
+          CustomPaint(painter: new SignaturePainter(_points))
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-          child: Text("add"),
-          onPressed: () {
-            setState(() {
-              list.add(Text('111111'));
-            });
-          }),
     );
   }
+
 }
 
+/**
+ * 通过继承CustomPainter 自定义一个控件
+ */
+class SignaturePainter extends CustomPainter {
+  SignaturePainter(this.points);
 
+  final List<Offset> points; // Offset:一个不可变的2D浮点偏移。
 
-
-class RainDrop extends CustomPainter {
-  RainDrop(this.rainList);
-
-  List<RainDropDrawer> rainList = List(); // 雨点列表
-  Paint _paint = new Paint()..style = PaintingStyle.stroke; // 配置画笔
-
-  @override
   void paint(Canvas canvas, Size size) {
-    rainList.forEach((item) {
-      item.drawRainDrop(canvas, _paint); // 实际的绘制逻辑
-    });
-    rainList.removeWhere((item) { // 移出无效对象
-      return !item.isValid();
-    });
+    Paint paint = new Paint() //设置笔的属性
+      ..color = Colors.blue[200]
+      ..strokeCap = StrokeCap.round
+      ..isAntiAlias = true
+      ..strokeWidth = 12.0
+
+      ..strokeJoin = StrokeJoin.bevel;
+
+    for (int i = 0; i < points.length - 1; i++) {
+      //画线
+      if (points[i] != null && points[i + 1] != null)
+        canvas.drawLine(points[i], points[i + 1],
+            paint); //drawLine(Offset p1, Offset p2, Paint paint) → void
+//      canvas.drawOval(
+//          new Rect.fromCircle(center: points[i], radius: 20.0), paint);
+////      canvas.drawOval(rect, paint)
+//    canvas.drawCircle(points[i], 20.0, paint);
+    }
   }
 
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    return null;
-  }
-// ...
+  /**
+   * 是否重绘
+   */
+  bool shouldRepaint(SignaturePainter other) => other.points != points;
+//  bool shouldRepaint(SignaturePainter other) =>true;
 }
 
 
-
-class RainDropDrawer {
-  static const double MAX_RADIUS = 30;
-  double posX;
-  double posY;
-  double radius = 5;
-
-  RainDropDrawer(this.posX, this.posY); // (2)
-
-  drawRainDrop(Canvas canvas, Paint paint) { // (1)
-    double opt = (MAX_RADIUS - radius) / MAX_RADIUS; // (3)
-    paint.color = Color.fromRGBO(0, 0, 0, opt);
-    canvas.drawCircle(Offset(posX, posY), radius, paint); // (4)
-    radius += 0.5;
-  }
-
-  bool isValid() { // (5)
-    return radius < MAX_RADIUS;
-  }
-}

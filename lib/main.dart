@@ -39,6 +39,7 @@ import 'package:gitftest1/page8/Page8.dart';
 import 'package:gitftest1/page9/Page9.dart';
 import 'package:redux/redux.dart';
 import 'page1/Page1.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   final store = Store<CountState>(reducer, initialState: CountState.initState());
@@ -74,6 +75,16 @@ class _MyApp extends State {
         // 这里可以定义静态路由，不能传递参数
         '/route/Page18_1': (_) => new Page18_1(), //路径可以随便起
       },
+          localizationsDelegates: [
+            // ... app-specific localization delegate[s] here
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: [
+            const Locale('en', 'US'), // English
+            const Locale('zh', 'CH'), // Chinese
+            // ... other locales the app supports
+          ],
         )
     );
   }
@@ -231,7 +242,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new Divider(),
             new ListTile(
-              title: new Text("viewpager"),
+              title: new Text("PageView"),
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -437,7 +448,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new Divider(),
             new ListTile(
-              title: new Text("插件4"),
+              title: new Text("插件4-photoview"),
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
